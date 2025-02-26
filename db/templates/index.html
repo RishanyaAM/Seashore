@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boat Reservation</title>
+
+</head>
+<style>
+    /* General styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa; /* Light sea-blue background */
+}
+
+/* Header styling with a sea theme */
+header {
+    background-color: #006064; /* Deep sea-blue */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+header p {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* Container styling */
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #004d40; /* Dark teal */
+}
+
+/* Style for the login link */
+a {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #00796b; /* Sea-green for the button */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the link */
+a:hover {
+    background-color: #004d40; /* Darker sea-green on hover */
+}
+
+</style>
+<body>
+    <header>
+        <h1>SEA SHORE</h1>
+        <p>Manage your fleet effortlessly</p>
+    </header>
+    <div class="container">
+    <h1>Welcome to the Boat Reservation Portal</h1>
+    <a href="{{ url_for('login') }}">Login</a>
+    </div>
+</body>
+</html>

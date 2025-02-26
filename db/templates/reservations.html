@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Reservations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light sea-blue background */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+    background-color: #006064; /* Deep sea-blue */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+        .table-container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        thead th {
+            background-color: #00796b; /* Sea-green */
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        tbody td {
+            padding: 10px;
+            border-bottom: 1px solid #b0bec5; /* Soft border */
+        }
+
+        tbody tr:hover {
+            background-color: #e0f2f1; /* Light aqua on hover */
+        }
+        header {
+    background-color: #006064; /* Deep sea-blue */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+header p {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* Container styling */
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #004d40; /* Dark teal */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SEA SHORE</h1>
+        <p>Manage your fleet effortlessly</p>
+    </header>
+    <div class="container">
+    <h1>Reservations</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Reservation ID</th>
+                    <th>Sailor Name</th>
+                    <th>Boat Name</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                    <tr>
+                        <td>{{ reservation[0] }}</td>
+                        <td>{{ reservation[1] }}</td>
+                        <td>{{ reservation[2] }}</td>
+                        <td>{{ reservation[3] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+</html>

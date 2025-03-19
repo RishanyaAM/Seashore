@@ -1,0 +1,23 @@
+<h1>Basic Jinja2</h1>
+<p>Hello {{ name }}</p>
+<p>Hello {{ name | upper}}</p>
+<p>Hello {{ name | lower}}</p>
+<p>Hello {{ name | capitalize}}</p>
+
+
+{{ lis }}
+{% for i in lis %}
+    {{ i }}
+{% endfor %}
+
+{% for i in lis %}
+   {{ i }}<br>
+{% endfor %}
+
+{% for i in lis %}
+   {% if i == 25 %}
+        {{ i + 50 }}
+    {% else %}
+        {{ i }}<br>
+    {% endif %}
+{% endfor %}

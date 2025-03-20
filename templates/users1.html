@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        form {
+            text-align: center;
+            margin: 10px 0;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+        .edit-form, .delete-confirm {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">User List</h2>
+
+    <!-- Add User Form -->
+    <form action="/add_user" method="POST">
+        <input type="text" name="name" placeholder="Enter Name" required>
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <button type="submit">Add User</button>
+    </form>
+
+    <!-- Users Table -->
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>
+                <button onclick="toggleEdit(this)" data-id="{{ user[0] }}">Edit</button>
+                <button onclick="toggleDelete(this)" data-id="{{ user[0] }}">Delete</button>
+
+                <!-- Edit Form -->
+                <div id="edit-form-{{ user[0] }}" class="edit-form">
+                    <form action="/edit_user/{{ user[0] }}" method="POST">
+                        <input type="text" name="name" value="{{ user[1] }}" required>
+                        <input type="email" name="email" value="{{ user[2] }}" required>
+                        <button type="submit">Save</button>
+                        <button type="button" onclick="toggleEdit(this)" data-id="{{ user[0] }}">Cancel</button>
+                    </form>
+                </div>
+
+                <!-- Delete Confirmation -->
+                <div id="delete-confirm-{{ user[0] }}" class="delete-confirm">
+                    <p>Are you sure you want to delete?</p>
+                    <button onclick="if(confirm('Are you sure?')) { window.location.href='/delete_user/{{ user[0] }}'; }">Yes</button>
+                    <button onclick="toggleDelete(this)" data-id="{{ user[0] }}">No</button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        function toggleEdit(button) {
+            let id = button.getAttribute("data-id");
+            let form = document.getElementById(`edit-form-${id}`);
+            form.style.display = form.style.display === "block" ? "none" : "block";
+        }
+
+        function toggleDelete(button) {
+            let id = button.getAttribute("data-id");
+            let confirmBox = document.getElementById(`delete-confirm-${id}`);
+            confirmBox.style.display = confirmBox.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

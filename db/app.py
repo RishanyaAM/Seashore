@@ -6,7 +6,7 @@ app.secret_key = 'your_secret_key'
 
 # Database connection
 def connect_db():
-    return MySQLdb.connect(host="localhost", user="root", passwd="password", db="boat_reservation_db")
+    return MySQLdb.connect(host="localhost", user="root", passwd="Password", db="boat_reservation_db")
 
 @app.route('/')
 def index():

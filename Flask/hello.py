@@ -1,5 +1,5 @@
 """"
-This is the firsth progra wherein Hi flaskers! is printed on the screen.
+This is the firsth program wherein Hi flaskers! is printed on the screen.
 The output can be observed on the webscreen.
 """
 from flask import Flask

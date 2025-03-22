@@ -1,6 +1,7 @@
 '''
 changing the frontend and formatting output into table
 '''
+''' pip install flask-mysqldb '''
 from flask import Flask, render_template
 from flask_mysqldb import MySQL
 
@@ -9,7 +10,7 @@ app = Flask(__name__)
 # MySQL Configuration
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Password'
+app.config['MYSQL_PASSWORD'] = 'student'
 app.config['MYSQL_DB'] = 'user_details'
 
 mysql = MySQL(app)
